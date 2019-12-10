@@ -1,10 +1,12 @@
 package com.cvr.empmgmt.utils;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.cvr.empmgmt.comparators.FirstnameComparator;
 import com.cvr.empmgmt.comparators.LastnameComparator;
@@ -135,6 +137,18 @@ public class EmployeeManagementImpl implements EmployeeManagement {
 			}
 		});
 		return this.employees;
+	}
+	
+	@Override
+	public boolean storeData() throws IOException {
+		IOUtils.saveEmployees(employees);
+		return true;
+	}
+	
+	@Override
+	public boolean retriveData() throws ClassNotFoundException, IOException {
+		this.employees.addAll(IOUtils.readEmployees());
+		return true;
 	}
 	
 	

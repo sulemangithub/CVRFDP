@@ -1,11 +1,12 @@
 package com.cvr.empmgmt.pojos;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import com.cvr.empmgmt.exeptions.InvalidEmployeeException;
 import com.cvr.empmgmt.validations.ValidationUtils;
 
-public class Employee implements Comparable<Employee>{
+public class Employee implements Comparable<Employee>,Serializable{
 	
 	private int id;
 	private String firstname;
@@ -77,7 +78,7 @@ public class Employee implements Comparable<Employee>{
 		return address;
 	}
 	
-	public class ContactInfo
+	public class ContactInfo implements Serializable
 	{
 		private String contactNo;
 		private String email;

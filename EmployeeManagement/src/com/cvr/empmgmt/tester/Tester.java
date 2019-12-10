@@ -41,6 +41,8 @@ public class Tester {
 				System.out.println("8. sort employees using lastname");
 				System.out.println("9. sort employees using dob");
 				System.out.println("10. sort employees using email");
+				System.out.println("11. Store Employees");
+				System.out.println("12. Retrieve Employees");
 				System.out.println("0. exit");
 
 				int choice = scan.nextInt();
@@ -183,6 +185,24 @@ public class Tester {
 				case 10:
 					List<Employee> list = empmgmt.sortEmployeesByEmail();
 					list.forEach((emp)->System.out.println(emp));
+					break;
+				case 11:
+					try {
+						empmgmt.storeData();
+						System.out.println("Stored..");
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					break;
+				case 12:
+					try {
+						empmgmt.retriveData();
+						System.out.println("Retrieved..");
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					break;
 				case 0:
 					System.out.println("THANK YOU");
