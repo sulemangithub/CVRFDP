@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import com.cvr.empmgmt.exeptions.InvalidEmployeeException;
 import com.cvr.empmgmt.validations.ValidationUtils;
 
-public class Employee {
+public class Employee implements Comparable<Employee>{
 	
 	private int id;
 	private String firstname;
@@ -116,10 +116,28 @@ public class Employee {
 		return 0.0;
 	};
 	
+	@Override
+	public boolean equals(Object obj) {
+		
+		Employee temp = (Employee) obj;
+		return this.id == temp.id;
+		
+		/*if(temp.id == this.id)
+			return true;
+		return false;*/		
+	}
+	
+	
 	
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", dob=" + dob
 				+ ", address=" + address + ", contactInfo=" + contactInfo + "]";
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		//return this.id - o.id; //for ascending order
+		return o.id - this.id ;//for descending order
 	}
 }
