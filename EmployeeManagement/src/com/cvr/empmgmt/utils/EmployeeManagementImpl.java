@@ -2,8 +2,12 @@ package com.cvr.empmgmt.utils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
+import com.cvr.empmgmt.comparators.FirstnameComparator;
+import com.cvr.empmgmt.comparators.LastnameComparator;
 import com.cvr.empmgmt.exeptions.InvalidEmployeeException;
 import com.cvr.empmgmt.pojos.Address;
 import com.cvr.empmgmt.pojos.Employee;
@@ -92,6 +96,49 @@ public class EmployeeManagementImpl implements EmployeeManagement {
 		emp2.setAddress(address2);
 		emp2.setContactInfo(cinfo2);
 		this.employees.add(emp2);		
+	}
+
+	@Override
+	public List<Employee> sortEmployeesById() {
+		Collections.sort(this.employees);
+		return this.employees;
+	}
+
+	@Override
+	public List<Employee> sortEmployeesByFirstname() {
+		Collections.sort(this.employees,new FirstnameComparator());
+		return this.employees;
+	}
+
+	@Override
+	public List<Employee> sortEmployeesByLastName() {
+		Collections.sort(this.employees,new LastnameComparator());
+		return this.employees;
+		
+	}
+
+	@Override
+	public List<Employee> sortEmployeesByDob() {
+		Collections.sort(this.employees, new Comparator<Employee>() {
+			@Override
+			public int compare(Employee o1, Employee o2) {
+			
+				return o2.getDob().compareTo(o1.getDob());
+			}
+		});
+		return this.employees;
+	}
+
+	@Override
+	public List<Employee> sortEmployeesByEmail() {
+		Collections.sort(this.employees, new Comparator<Employee>() {
+			@Override
+			public int compare(Employee o1, Employee o2) {
+			
+				return o2.getContactInfo().getEmail().compareTo(o1.getContactInfo().getEmail());
+			}
+		});
+		return this.employees;
 	}
 	
 	

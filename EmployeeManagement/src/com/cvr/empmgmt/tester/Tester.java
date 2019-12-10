@@ -163,54 +163,29 @@ public class Tester {
 					}
 					break;
 				case 6 :
-					
-					List<Employee> list = empmgmt.getEmployees();
-					Collections.sort(list);
-					for (Employee e : list) {
+					for (Employee e : empmgmt.sortEmployeesById()) {
 						System.out.println(e);
 					}
 					break;
 				case 7:
-					list = empmgmt.getEmployees();
-					Collections.sort(list,new FirstnameComparator());
-					for (Employee e : list) {
+					for (Employee e : empmgmt.sortEmployeesByFirstname()) {
 						System.out.println(e);
 					}
 					break;
 				case 8:
-					list = empmgmt.getEmployees();
-					Collections.sort(list,new LastnameComparator());
-					for (Employee e : list) {
+					for (Employee e : empmgmt.sortEmployeesByLastName()) {
 						System.out.println(e);
 					}
 					break;
 				case 9:					
-					Comparator<Employee> c1 = new Comparator<Employee>(){
-						@Override
-						public int compare(Employee o1, Employee o2) {
-							return o1.getDob().compareTo(o2.getDob());
-					}};
-						
-					list = empmgmt.getEmployees();
-					Collections.sort(list,c1);
-					for (Employee e : list) {
+					for (Employee e : empmgmt.sortEmployeesByDob()) {
 						System.out.println(e);
 					}
 					break;
 				case 10:
-					
-					list = empmgmt.getEmployees();
-					
-					Collections.sort(list, new Comparator<Employee>() {
-						@Override
-						public int compare(Employee o1, Employee o2) {
-							// TODO Auto-generated method stub
-							return o1.getContactInfo().getEmail().compareTo(o2.getContactInfo().getEmail());
-						}
-					});
-					for (Employee e : list) {
+					for (Employee e : empmgmt.sortEmployeesByEmail()) {
 						System.out.println(e);
-					}					
+					}				
 					
 					break;
 				case 0:

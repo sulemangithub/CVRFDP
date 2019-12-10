@@ -11,6 +11,11 @@ public interface EmployeeManagement {
 	public Employee getEmployee(int id);
 	public List<Employee> getEmployees();
 	public double getSalary(int id);
+	public List<Employee> sortEmployeesById();
+	public List<Employee> sortEmployeesByFirstname();
+	public List<Employee> sortEmployeesByLastName();
+	public List<Employee> sortEmployeesByDob();
+	public List<Employee> sortEmployeesByEmail();
 	
 	
 	
