@@ -178,15 +178,11 @@ public class Tester {
 					}
 					break;
 				case 9:					
-					for (Employee e : empmgmt.sortEmployeesByDob()) {
-						System.out.println(e);
-					}
+					empmgmt.sortEmployeesByDob().forEach((e)->System.out.println(e));
 					break;
 				case 10:
-					for (Employee e : empmgmt.sortEmployeesByEmail()) {
-						System.out.println(e);
-					}				
-					
+					List<Employee> list = empmgmt.sortEmployeesByEmail();
+					list.forEach((emp)->System.out.println(emp));
 					break;
 				case 0:
 					System.out.println("THANK YOU");

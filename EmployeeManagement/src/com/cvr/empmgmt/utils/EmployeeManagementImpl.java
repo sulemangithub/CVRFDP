@@ -119,13 +119,9 @@ public class EmployeeManagementImpl implements EmployeeManagement {
 
 	@Override
 	public List<Employee> sortEmployeesByDob() {
-		Collections.sort(this.employees, new Comparator<Employee>() {
-			@Override
-			public int compare(Employee o1, Employee o2) {
-			
-				return o2.getDob().compareTo(o1.getDob());
-			}
-		});
+		Collections.sort(this.employees,
+				(e1,e2)->
+					e1.getDob().compareTo(e2.getDob()));
 		return this.employees;
 	}
 
